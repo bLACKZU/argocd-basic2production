@@ -21,9 +21,9 @@ spec:
       project: default
 
       source:
-        repoURL: https://github.com/CloudWithVarJosh/app1-config.git
+        repoURL: https://github.com/bLACKZU/argocd-basic2production.git
         targetRevision: main
-        path: "{{.metadata.labels.region}}/manifests"
+        path: "ApplicationSets/02-app1-config-repo/{{.metadata.labels.region}}/manifests"
 
       destination:
         name: "{{.name}}"
