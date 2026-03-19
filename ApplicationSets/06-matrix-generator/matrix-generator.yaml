@@ -13,10 +13,10 @@ spec:
         generators:
           # Dimension 1: environments from Git
           - git:
-              repoURL: https://github.com/CloudWithVarJosh/app1-config.git
+              repoURL:  https://github.com/bLACKZU/argocd-basic2production.git
               revision: main
               directories:
-                - path: "*"
+                - path: "ApplicationSets/06-matrix-generator/*"
 
           # Dimension 2: clusters (explicit, simple)
           - list:
@@ -24,7 +24,7 @@ spec:
                 - region: mumbai
                   clusterName: in-cluster
                 - region: nvirginia
-                  clusterName: varun.joshi@cwvj-nvirginia.us-east-1.eksctl.io
+                  clusterName: iam-root-account@zu-nvirginia.us-east-1.eksctl.io
 
   template:
     metadata:
@@ -33,9 +33,9 @@ spec:
       project: default
 
       source:
-        repoURL: https://github.com/CloudWithVarJosh/app1-config.git
+        repoURL:  https://github.com/bLACKZU/argocd-basic2production.git
         targetRevision: main
-        path: "{{.path.basename}}/manifests"
+        path: "ApplicationSets/06-matrix-generator/{{.path.basename}}/manifests"
 
       destination:
         name: "{{.clusterName}}"
