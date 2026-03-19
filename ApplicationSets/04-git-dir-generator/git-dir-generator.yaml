@@ -10,10 +10,10 @@ spec:
 
   generators:
     - git:
-        repoURL: https://github.com/CloudWithVarJosh/app1-config.git
+        repoURL: https://github.com/bLACKZU/argocd-basic2production.git
         revision: main
         directories:
-          - path: "mumbai/*"
+          - path: "ApplicationSets/04-git-dir-generator/mumbai/*"
 
   template:
     metadata:
@@ -22,9 +22,9 @@ spec:
       project: default
 
       source:
-        repoURL: https://github.com/CloudWithVarJosh/app1-config.git
+        repoURL: https://github.com/bLACKZU/argocd-basic2production.git
         targetRevision: main
-        path: "{{.path.path}}/manifests"
+        path: "ApplicationSets/04-git-dir-generator/{{.path.path}}/manifests"
 
       destination:
         name: in-cluster
@@ -36,3 +36,9 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+
+# .path = {
+#   path:     "mumbai/dev",
+#   basename: "dev",
+#   segments: ["mumbai", "dev"]
+# }
