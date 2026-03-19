@@ -10,10 +10,10 @@ spec:
 
   generators:
     - git:
-        repoURL: https://github.com/CloudWithVarJosh/app1-config.git
+        repoURL: https://github.com/bLACKZU/argocd-basic2production.git
         revision: main
         files:
-          - path: clusters.yaml
+          - path: ApplicationSets/05-git-file-generator/clusters.yaml
 
   template:
     metadata:
@@ -22,9 +22,9 @@ spec:
       project: default
 
       source:
-        repoURL: https://github.com/CloudWithVarJosh/app1-config.git
+        repoURL: https://github.com/bLACKZU/argocd-basic2production.git
         targetRevision: main
-        path: "{{.region}}/manifests"
+        path: "ApplicationSets/05-git-file-generator/{{.region}}/manifests"
 
       destination:
         name: "{{.cluster}}"

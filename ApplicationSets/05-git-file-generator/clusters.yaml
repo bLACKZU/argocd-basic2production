@@ -5,5 +5,5 @@
 
 - name: app1-nvirginia
   region: nvirginia
-  cluster: varun.joshi@cwvj-nvirginia.us-east-1.eksctl.io
+  cluster: iam-root-account@zu-nvirginia.us-east-1.eksctl.io
   namespace: app1-nvirginia-ns
